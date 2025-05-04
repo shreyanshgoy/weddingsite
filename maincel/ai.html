@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cultural Wedding Showcase</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 40px;
+      font-family: 'Poppins', sans-serif;
+      background-color: lightpink;
+      color: white;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    h1 {
+      font-size: 3rem;
+      margin-bottom: 40px;
+      color: #fceaff;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+      width: 100%;
+      max-width: 1200px;
+    }
+
+    .culture-box {
+      background-color: white;
+      padding: 20px;
+      border-radius: 20px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      z-index: 1;
+      transition: transform 0.4s ease-in-out;
+    }
+
+    .culture-box::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      /* background: conic-gradient(
+        from 0deg,
+        #ff00ff,
+        #00ffff,
+        #ffff00,
+        #ff00ff
+      ); */
+      animation: rotateGlow 4s linear infinite;
+      z-index: -2;
+      /* filter: blur(30px); */
+    }
+
+    .culture-box:hover {
+      transform: rotateY(5deg) scale(1.05);
+    }
+
+    .culture-box h2, .culture-box p {
+      position: relative;
+      z-index: 2;
+    }
+
+    .culture-box h2 {
+      margin-bottom: 10px;
+      font-size: 1.5rem;
+      color: #ff9aff;
+    }
+
+    .culture-box p {
+      font-size: 0.95rem;
+      color: #ccc;
+    }
+
+    .culture-box::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border-radius: 20px;
+      /* background: #2d2d3f; */
+      z-index: 1;
+      opacity: 0.95;
+    }
+
+    @keyframes rotateGlow {
+      0% {
+        transform: rotate(0deg);
+      }
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+  </style>
+</head>
+<body>
+    <section>
+        <nav>
+            <ul>
+              <a href="planning.html"><- back to home</a>
+            </ul>
+        </nav>
+    </section>
+  <h1>🌍 Cultural Wedding Showcase</h1>
+  <h2>Select which Culture of Wedding you Want We customise it With Ai Integration</h2>
+  <div class="grid">
+    <div class="culture-box">
+      <h2>👑 Rajasthani Wedding</h2>
+      <p>Royal traditions, grand attire, and palace venues define this majestic celebration.</p>
+    </div>
+    <div class="culture-box">
+      <h2>🎨 Gujarati Wedding</h2>
+      <p>Colorful garbas, rich rituals, and joyful vibes make this celebration unforgettable.</p>
+    </div>
+    <div class="culture-box">
+      <h2>🌺 Marathi Wedding</h2>
+      <p>Simple, elegant, and rich with Maharashtrian rituals and cultural elements.</p>
+    </div>
+    <div class="culture-box">
+      <h2>🌸 Punjabi Wedding</h2>
+      <p>Full of dance, vibrant colors, and grand celebrations full of life and energy.</p>
+    </div>
+    <div class="culture-box">
+      <h2>💐 Bengali Wedding</h2>
+      <p>Traditional customs, red-white attires, and unique rituals highlight this culture.</p>
+    </div>
+    <div class="culture-box">
+      <h2>🎊 South Indian Wedding</h2>
+      <p>Serene temple rituals and silk-draped elegance mark this divine celebration.</p>
+    </div>
+    <div class="culture-box">
+        <h2>🎊 Islam Wedding</h2>
+        <p>Serene temple rituals and silk-draped elegance mark this divine celebration.</p>
+      </div>
+      <div class="culture-box">
+        <h2>🎊 Goa Sea beach Wedding</h2>
+        <p>Serene temple rituals and silk-draped elegance mark this divine celebration.</p>
+      </div>
+  </div>
+</body>
+</html>

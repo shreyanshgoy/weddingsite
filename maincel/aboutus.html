@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us | Wedding Web</title>
+    <link rel="stylesheet" href="styleabcon.css">
+    <link rel="stylesheet" href="https://www.unpkg.com/shery-js@1.0.0-alpha.0.5/dist/Shery.css">
+    <link rel="stylesheet" href="https://unpkg.com/sheryjs/dist/Shery.css" /> <!-- Recommended -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+</head>
+<body id="slid">
+    <header>
+        <a href="index.html" class="logo">Wedding</a>
+        <ul class="nav">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="aboutus.html" class="active">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </header>
+
+    <section class="about-section slides">
+        <div class="img">
+            <img src="./images/imagecopy.jpg" alt="">
+            <h1 class="fade-in">About Us</h1>
+            <p class="slide-in">We create magical wedding experiences, making your special day unforgettable. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vero quisquam, optio aliquam fugiat mollitia, sunt sint libero rerum reprehenderit rem nisi. Tempora perferendis, quae tempore explicabo aperiam possimus est sit eos deserunt laudantium suscipit iste voluptate dolorem cumque, asperiores sed.
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis quos obcaecati vit nisi necessitatibus eveniet doloribus laudantium maiores, cumque repudiandae distinctio illum veritatis exercitationem reprehenderit minima earum doloremque harum ea delectus non culpa beatae. Esse consequatur error, nulla debitis suscipit sed natus!
+            </p>
+        </div>
+
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Wedding Web. All rights reserved.</p>
+    </footer>
+
+    <script>
+        gsap.from(".fade-in", { opacity: 0, y: -50, duration: 1.5 });
+        gsap.from(".slide-in", { opacity: 0, x: -100, duration: 1.5, delay: 0.5 });
+    </script>
+    <!--  Gsap is needed for Basic Effects -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+
+<!-- Scroll Trigger is needed for Scroll Effects -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+<!-- Three.js is needed for 3d Effects -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/0.155.0/three.min.js"></script>
+
+<!-- ControlKit is needed for Debug Panel -->
+<script src="https://cdn.jsdelivr.net/gh/automat/controlkit.js@master/bin/controlKit.min.js"></script>
+
+<script  type="text/javascript"  src="https://unpkg.com/sheryjs/dist/Shery.js"></script> <!-- Recommended -->
+<script type="text/javascript" src="Shery.js"></script>
+
+</body>
+</html>

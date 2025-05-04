@@ -1,0 +1,146 @@
+/* Global Styles */
+body {
+    font-family: 'Great Vibes', cursive;
+    background-color: #FFF5E1;
+    color: #4A4A4A;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+     overflow: hidden;  /* to remove the scroll bar */
+     background: url(./images/imagecopy2.jpg);
+     background-size: cover;
+}
+
+/* Header */
+header {
+    background-color: transparent;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    opacity: 1100;
+    backdrop-filter: blur(10px);
+}
+
+.logo {
+    font-size: 30px;
+    font-weight: bold;
+    color: #4A4A4A;
+    text-decoration: none;
+}
+
+.bolo{
+    color: white;
+}
+
+.nav {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.nav li {
+    display: inline;
+}
+
+.nav a {
+    text-decoration: none;
+    color: #4A4A4A;
+    font-weight: bold;
+    transition: 0.3s;
+    font-size: 20px;
+}
+
+.nav a:hover,
+.nav .active {
+    color: #E63946;
+}
+
+/* About & Contact Sections */
+.about-section, .contact-section {
+    padding: 60px;
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    margin: 50px auto;
+    width: 50%;
+    animation: fade-in 1s ease-in-out;
+}
+
+
+
+@keyframes fade-in {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Contact Form */
+.contact-section form {
+    display: flex;
+    flex-direction: column;
+    max-width: 400px;
+    margin: auto;
+}
+
+
+
+.contact-section input, 
+.contact-section textarea {
+    margin: 10px 0;
+    padding: 12px;
+    border: 2px solid #FFD700;
+    border-radius: 8px;
+    font-size: 16px;
+    transition: 0.3s;
+}
+
+.contact-section input:focus, 
+.contact-section textarea:focus {
+    border-color: #E63946;
+    outline: none;
+}
+
+/* Button */
+.btn-hover {
+    background-color: #E63946;
+    color: white;
+    border: none;
+    padding: 12px;
+    font-size: 18px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn-hover:hover {
+    background-color: #FFD700;
+    color: #4A4A4A;
+}
+
+/* Footer */
+footer {
+    background-color: #fff;
+    padding: 10px;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    margin-top: 50px;
+}
+
+#slid{
+    background:url("./images/image.jpg");
+    background-size: cover;
+     background-repeat: no-repeat; 
+      background-attachment: fixed;
+} 
+
+.slides .img img{
+    height: 200px;
+    width: 800px;
+    background-size: cover;
+}
+
+
+section .con{
+    background: url(./images/imagecopy3.jpg);
+}

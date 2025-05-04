@@ -1,0 +1,179 @@
+/* General Styles */ body { margin-top: 2px; background-image: url(mcimages/bodyback2.jpg); background-repeat: no-repeat; background-size: cover; display: flex; flex-direction: column; align-items: center; }
+
+/* Navbar Styles */ .fixed-top { background-color: pink; }
+
+.navbar-brand { position: relative; background: url(madimelogo.png) no-repeat center; width: 70px; left: 15px; background-size: contain; }
+
+.bg-dark { background-color: #FA0E7D !important; }
+
+.navbar-dark .navbar-nav .nav-link { color: rgba(255, 255, 255, 1); }
+
+/* Jumbotron Section .jumbotron1 { display: flex; justify-content: center; align-items: center; flex-direction: column; background-image: url('longback2.jpg'); width: 100%; margin-bottom: 20px; height: 350px; opacity: 1; text-align: center; } */
+
+.jumbotron1 h1, .jumbotron1 i { font-family: Raleway, sans-serif; color: #FFFFFF; font-size: 40px; font-weight: 900; margin-top: -10px; } 
+
+/* Headings */ h1 { background-color: rgba(250, 14, 125, 0.8); padding: 10px; border-radius: 10px; color: white; }
+
+/* Spacing Utility */ .space1 { margin-bottom: 10px; }
+
+/* .container .jumbotron1 { padding: 0px 3px; }      ..... */
+
+/* Icons */ .fa { font-size: 30px; }
+
+.fa-heart { font-size: 2em; }
+
+
+.fixed-top{
+
+	background-color:  pink;
+}
+/* .navbar-brand {
+    position: relative;
+    /* background: url(madimelogo.jpg); */
+    /* width: 70px; */
+    /* left: 15px; */
+    /* background-size: contain; */
+
+/* }  */
+
+.navbar-brand {
+    margin-top: 30px; /* Adjust this value to move the logo down */
+    position: relative;
+    width: 70px;
+    background: url('longback2.jpg') no-repeat center; /* Ensure the logo image path is correct */
+    background-size: contain;
+}
+/* .jumbotron1{
+	height: 10px;
+	background-color: rgba(255,125,200,1);
+} */
+.space1{
+	margin-bottom: 10px;
+}
+body{
+	margin-top: 2px;
+	background-image: url('bodyback2.jpg');
+	 background-repeat: no-repeat;
+    background-size: auto; 
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+	/* box-sizing: border-box; */
+}
+.container .jumbotron1 {
+padding:0px 3px;
+}
+.fa-heart{
+	font-size: 2em;
+
+}
+.jumbotron1{
+	background-image: url("longback2.jpg");
+	width: 100%;
+	position: relative;
+	margin-bottom: 20px;
+	height: 230px;
+	opacity: 1;
+	background-repeat: no-repeat;
+	background-size: cover;
+
+}
+h1{
+	background-color: rgba(250,14,125,0.8);
+	padding: 10px;
+	border-radius: 10px;
+	flood-color: white;
+}
+.jumbotron1 h1,i{
+    font-family: raleway;
+    color: #FFFFFF;
+    font-size: 40px;
+    font-weight: 900;
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.fa{
+	font-size: 30px;
+
+}
+.bg-dark {
+    background-color: #FA0E7D!important;
+}
+.navbar-dark .navbar-nav .nav-link {
+    color: rgba(255,255,255,1);
+}
+
+.navbar-nav{
+	display: flex;
+	margin-left: 600px;
+	/* justify-content: space-evenly; */
+	gap: 100px;
+	margin-top: -8px;
+	
+}
+
+.navbar{
+	background-color: #FA0E7D;
+	height: 60px;
+	width: 100%;
+}
+
+.collapse ul li a{
+	text-decoration: none;
+	font-size: 20px;
+}
+
+.collapse ul li{
+	list-style: none;
+}
+
+/* .collapse ul li a{
+	color: blue;
+	/* transition: 1s ease-in-out; */
+/* }  */
+
+
+.navbar-dark .navbar-nav .nav-link:hover {
+    color: blue; /* Change text color on hover (gold) */
+    transition: color 0.3s ease-in-out; /* Smooth transition */
+}
+
+.navbar-dark .navbar-nav .nav-link{
+	list-style: none;
+
+}
+
+.container .navbar-brand{
+	font-size: 30px;
+}
+
+.container a{
+	list-style: none;
+
+}
+
+/* .navbar-brand{
+	margin-top: 10px;
+} */
+
+
+footer{
+	/* width: 100%; */
+	height: 30px;
+	/* display: flex; */
+	margin-top: 30px;
+	width: 100vw; 
+    /* margin: 0; Remove any margins */
+    /* padding: 0; */
+	
+}
+
+.container .row{
+	display: flex;
+	/* justify-content: space-evenly; */
+	gap: 170px;
+	margin-top: 28px;
+	margin-left: 50px;
+}

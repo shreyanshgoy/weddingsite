@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>food</title>
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link href="https://fonts.googleapis.com/css?family=Droid+Sans:400,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.8.1/baguetteBox.min.css">
+    <link rel="stylesheet" href="thumbnail-gallery.css">
+    <link href="https://fonts.googleapis.com/css?family=Bellefair" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Tinos" rel="stylesheet">
+ <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+  <script src="https://use.fontawesome.com/1d46f05392.js"></script>
+  <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/commonCSS/w3.css">
+<link rel="stylesheet" type="text/css" href="../assets/commonCSS/food.css">
+
+
+</head>
+<style type="text/css">.logo{
+  font-family: 'Pacifico', cursive;
+  font-size: 30px;
+  color: white;
+}
+img:hover {
+    transform: scale(1.05); /* Slight zoom effect */
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2); /* Add shadow on hover */
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out; /* Smooth transition */
+    cursor: pointer; /* Change cursor to pointer */
+  }
+
+</style>
+<body>
+  <!-- Navbar code -->  
+  <nav class="navbar navbar-default">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-2">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand logo" href="../index.html">wedding</a>
+  </div>
+  <div class="collapse navbar-collapse" id="navbar-collapse-2">
+    <ul class="nav navbar-nav navbar-right">
+       <li><a href="../index.html">Home</a></li>
+     <!--  <li><a href="#">About</a></li> -->
+      <li><a href="../View/venue.html">Venue</a></li>
+      <li><a href="../View/photo.html">Photography</a></li>
+      <li><a href="../View/food.html">Catering</a></li>
+      <li><a href="../View/Decoration.html">Decorators</a></li>
+      <li><a href="../mc/mc.html">MC</a></li>
+
+  </ul>
+
+</div><!-- /.navbar-collapse -->
+</div><!-- /.container -->
+</nav><!-- /.navbar -->
+<!-- closing Navbar code -->
+<br>
+<div id="mycarousel" class="carousel slide" data-ride="carousel">
+    <div class="carousel-inner">
+        <div class="item active">
+        <img src="" alt="" style="opacity:0.5;background: linear-gradient(90deg, black,black);height: 200px; width: 100%;">
+           <div class="carousel-caption">
+           <h1 style="color: white;text-shadow: 4px 4px 4px black;font-size: 50px"><b>Best Food</b><br>
+           <img style="height: 40px;width: 40px"src="..\assets\images\loc.png" alt="Mangaluru"><d style="font-size: 25px"> INDIA</d></h1>
+           </div>
+        </div>
+    </div>
+  </div>
+
+<br>
+<div class="container">
+  <h2 style="text-shadow: 3px 3px 4px black">Please Select The Type Of Food</h2>
+  <div class="row">
+    <div class="col-md-6">
+      <div class="thumbnail">
+        <a href="vegetarian.html" target="_blank">
+          <img 
+          src="../assets/images/veggie.jpg" 
+          alt="vegetarian food" 
+          style="width:50%; transition: transform 0.3s ease-in-out; box-shadow: 0 8px 12px rgba(0, 0, 0, 1); cursor: pointer;" 
+          onmouseover="this.style.transform='scale(1.05)'; this.style.boxShadow='0 8px 12px rgba(0, 0, 0, 0.2)';" 
+          onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 4px 6px rgba(0, 0, 0, 0.1)';"
+        />
+          <div class="caption">
+            <p style="font-size: 24px;color: white;text-shadow: 3px 3px 4px black">Vegetarian Food</p>
+          </div>
+        </a>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="thumbnail">
+        <a href="nonvegetarian.html" target="_blank">
+          <img src="../assets/images/nonvegpoint.jpg" alt="Non Vegetarian Food" style="width:65%">
+          <div class="caption">
+            <p style="font-size: 24px;color: white;text-shadow: 3px 3px 4px black">Non Vegetarian food</p>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

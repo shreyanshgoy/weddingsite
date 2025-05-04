@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | Wedding Web</title>
+    <link rel="stylesheet" href="styleabcon.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+</head>
+<body>
+    <header class="bolo">
+        <a href="index.html" class="logo" style="color: rgb(187, 204, 99);">Wedding</a>
+        <ul class="nav"   >
+            <li><a href="index.html" >Home</a></li>
+            <li><a href="aboutus.html">About</a></li>
+            <li><a href="contact.html" class="active">Contact</a></li>
+        </ul>
+    </header>
+
+    <section  class="contact-section con" style="height: 400px; width: 500px; background: url('./images/imagecopy3.jpg') no-repeat center; background-size: cover;" >
+        <h1 class="fade-in">Contact Us</h1>
+        <form action="https://script.google.com/macros/s/AKfycbxGy0YO_plIleOem8LALmyOMtOCVhplM6Jlpv1ZFDlqp3Qk9byV3HAVdvm1Z-usIos_eQ/exec" class="form-slide-in" method="POST" name="contact-form">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="Name" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="Email" required>
+
+            <label for="message">Message:</label>
+            <textarea id="message" name="Message" required></textarea>
+
+            <button type="submit" class="btn-hover" name="submit">Send</button>
+        </form>
+    </section>
+
+    <footer style="margin-top: 100px;">
+        <p>&copy; 2025 Wedding Web. All rights reserved.</p>
+    </footer>
+
+    <script>
+        gsap.from(".fade-in", { opacity: 0, y: -50, duration: 1.5 });
+        gsap.from(".form-slide-in", { opacity: 0, x: 100, duration: 1.5, delay: 0.5 });
+    </script>
+    <script src="Googlesheet.js"></script>
+</body>
+</html>

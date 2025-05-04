@@ -1,0 +1,77 @@
+
+
+
+.budget{
+    padding: 100px;
+}
+body {
+    font-family: Arial, sans-serif;          
+    background-color: #f4f4f9; 
+    color: black; 
+}
+
+table {
+    background-color: pink; 
+    padding: 20px;
+    margin:0 auto;
+    border-radius: 8px;
+    width: 90%;
+    max-width: 600px; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+}
+
+td {
+    padding: 10px;
+    display: block;
+    width: 100%;
+    padding: 10px;
+}
+
+input[type="radio"] {
+    margin-right: 10px; 
+}
+
+input[type="text"], input[type="email"], input[type="date"] {
+    display: inline-block;
+    width: 90%;
+    padding: 8px;
+    margin: 5px 0;
+    border: 1px solid pink;
+    border-radius: 5px; 
+    background-color: #ffffff; 
+    color: #333; 
+}
+
+input[type="submit"], input[type="reset"] {
+    background-color:palevioletred;
+    color: #ffffff; 
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease; 
+}
+
+input[type="submit"]:hover, input[type="reset"]:hover {
+    background-color: lightpink;
+    color:black;
+}
+
+#heading {
+    color: palevioletred; 
+    font-weight: bold; 
+}   
+
+@media (max-width:768px)
+{
+    .budget{
+        padding: 300px;
+    }
+    td {
+        padding: 10px;
+        display: block;
+        width: 100%;
+        padding: 10px;
+    }   
+}

@@ -1,0 +1,249 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Crypto Payment</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- jQuery & Web3 -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://unpkg.com/@metamask/legacy-web3@latest/dist/metamask.web3.min.js"></script>
+  
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+  <!-- Styling -->
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+      color: white;
+      overflow: hidden;
+    }
+
+    .payment-container {
+      margin: 15vh auto;
+      width: 400px;
+      padding: 30px;
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 20px;
+      backdrop-filter: blur(15px);
+      box-shadow: 0 0 30px rgba(0, 255, 255, 0.3);
+      text-align: center;
+      position: relative;
+      z-index: 2;
+    }
+
+    .pay-button {
+      padding: 15px 30px;
+      font-size: 18px;
+      font-weight: 600;
+      border: none;
+      border-radius: 30px;
+      background: linear-gradient(45deg, #00f2fe, #4facfe);
+      color: white;
+      cursor: pointer;
+      box-shadow: 0 0 10px #00f2fe;
+      transition: transform 0.2s ease, box-shadow 0.2s;
+    }
+
+    .pay-button:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 20px #00f2fe;
+    }
+
+    #status {
+      margin-top: 20px;
+      font-weight: bold;
+    }
+
+    .eth-flash {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 120px;
+      height: 120px;
+      background: url('https://cryptologos.cc/logos/ethereum-eth-logo.png?v=025') no-repeat center/contain;
+      animation: zoomFade 1.2s ease-out forwards;
+      transform: translate(-50%, -50%);
+      z-index: 999;
+    }
+
+    @keyframes zoomFade {
+      0% {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0.2);
+      }
+      50% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1.2);
+      }
+      100% {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0.1);
+      }
+    }
+
+    /* Particle Background */
+    #particles-js {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+      top: 0;
+      left: 0;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Particle Background -->
+  <div id="particles-js"></div>
+
+  <!-- Audio -->
+  <audio id="cryptoSound" src="https://assets.mixkit.co/sfx/download/mixkit-arcade-retro-jump-223.wav" preload="auto"></audio>
+
+  <!-- Payment Box -->
+  <div class="payment-container">
+    <h2>Pay with Ethereum</h2>
+    <button class="pay-button">Pay</button>
+    <div id="status"></div>
+  </div>
+
+  <!-- MetaMask & Payment JS -->
+  <script type="text/javascript">
+    window.addEventListener('load', async () => {
+      if (window.ethereum) {
+        window.web3 = new Web3(ethereum);
+        try {
+          await ethereum.enable();
+          initPayButton();
+        } catch (err) {
+          $('#status').html('User denied account access');
+        }
+      } else if (window.web3) {
+        window.web3 = new Web3(web3.currentProvider);
+        initPayButton();
+      } else {
+        $('#status').html('No Metamask (or other Web3 Provider) installed');
+      }
+    });
+
+    const initPayButton = () => {
+      $('.pay-button').click(() => {
+        const audio = document.getElementById('cryptoSound');
+        audio.play();
+
+        const anim = document.createElement('div');
+        anim.className = 'eth-flash';
+        document.body.appendChild(anim);
+        setTimeout(() => anim.remove(), 1500);
+
+        const paymentAddress = '0xE5f6814ee7E365De36a09030a40C94A5D391fFda';  
+        const amountEth = 0.0001;
+
+
+web3.eth.sendTransaction({
+          to: paymentAddress,
+          value: web3.toWei(amountEth, 'ether')
+        }, (err, transactionId) => {
+          if (err) {
+            console.log('Payment failed', err);
+            $('#status').html('Payment failed');
+          } else {
+            console.log('Payment successful', transactionId);
+            $('#status').html('Payment successful: ' + transactionId);
+          }
+        });
+      });
+    };
+  </script>
+
+  <!-- Particles JS -->
+  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+  <script>
+    particlesJS("particles-js", {
+      "particles": {
+        "number": { "value": 60 },
+        "color": { "value": "#00ffff" },
+        "shape": { "type": "circle" },
+        "opacity": { "value": 0.3 },
+        "size": { "value": 3 },
+        "line_linked": {
+          "enable": true,
+          "distance": 150,
+          "color": "#00ffff",
+          "opacity": 0.4,
+          "width": 1
+        },
+        "move": {
+          "enable": true,
+          "speed": 2
+        }
+      }
+    });
+  </script>
+</body>
+</html>
+
+
+<!-- yarn add global serve -->
+<!-- serve -->
+
+<!-- 0xE5f6814ee7E365De36a09030a40C94A5D391fFda -->
+
+
+<!-- <!DOCTYPE html>
+<html>
+<head>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://unpkg.com/@metamask/legacy-web3@latest/dist/metamask.web3.min.js"></script>
+</head>
+<body>
+  <div>
+    <button class="pay-button">Pay</button>
+    <div id="status"></div>
+  </div>
+  <script type="text/javascript">
+    window.addEventListener('load', async () => {
+      if (window.ethereum) {
+        window.web3 = new Web3(ethereum);
+        try {
+          await ethereum.enable();
+          initPayButton()
+        } catch (err) {
+          $('#status').html('User denied account access', err)
+        }
+      } else if (window.web3) {
+        window.web3 = new Web3(web3.currentProvider)
+        initPayButton()
+      } else {
+        $('#status').html('No Metamask (or other Web3 Provider) installed')
+      }
+    })
+
+    const initPayButton = () => {
+      $('.pay-button').click(() => {
+        // paymentAddress is where funds will be send to
+        const paymentAddress = '0x3D6d271e69704135C080e72a948d39e9748aE219'
+        const amountEth = 0.0001
+
+        web3.eth.sendTransaction({
+          to: paymentAddress,
+          value: web3.toWei(amountEth, 'ether')
+        }, (err, transactionId) => {
+          if  (err) {
+            console.log('Payment failed', err)
+            $('#status').html('Payment failed')
+          } else {
+            console.log('Payment successful', transactionId)
+            $('#status').html('Payment successful')
+          }
+        })
+      })
+    }
+  </script>
+</body>
+</html> -->

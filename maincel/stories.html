@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wedding Photo Gallery</title>
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #ffe0ec, #fff5f8);
+      padding: 40px;
+      max-width: 1000px;
+      margin: auto;
+      perspective: 1000px;
+    }
+    h1 {
+      text-align: center;
+      color: #e91e63;
+      font-size: 2.5rem;
+      text-shadow: 1px 1px 2px #ffb3c6;
+    }
+    form {
+      margin-top: 30px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      background: #ffffffcc;
+      padding: 20px;
+      border-radius: 16px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    }
+    input[type="file"] {
+      border: 2px dashed #e91e63;
+      padding: 20px;
+      background: #fff;
+      border-radius: 10px;
+      transition: background 0.3s;
+    }
+    input[type="file"]:hover {
+      background: #fff0f5;
+    }
+    textarea {
+      resize: none;
+      padding: 15px;
+      font-size: 1rem;
+      border-radius: 10px;
+      border: 1px solid #ddd;
+    }
+    button {
+      background: linear-gradient(to right, #ff6f91, #ff9671);
+      color: white;
+      border: none;
+      padding: 12px 30px;
+      border-radius: 30px;
+      cursor: pointer;
+      font-size: 1rem;
+      box-shadow: 0 4px 15px rgba(255, 105, 135, 0.3);
+      transition: transform 0.2s;
+    }
+    button:hover {
+      transform: scale(1.05);
+    }
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 30px;
+      margin-top: 50px;
+    }
+    .card {
+      background: white;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+      transition: transform 0.4s ease;
+      transform-style: preserve-3d;
+      transform: rotateY(0deg);
+      animation: pop 0.6s ease-out;
+    }
+    .card:hover {
+      transform: scale(1.05) rotateY(3deg);
+    }
+    .card img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+    }
+    .card p {
+      padding: 15px;
+      font-size: 0.95rem;
+      color: #333;
+    }
+    .delete-btn {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background: #e91e63;
+      border: none;
+      color: white;
+      border-radius: 50%;
+      width: 30px;
+      height: 30px;
+      font-size: 16px;
+      cursor: pointer;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    }
+    @keyframes pop {
+      0% { transform: scale(0.8) rotateY(-10deg); opacity: 0; }
+      100% { transform: scale(1) rotateY(0); opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+    <section>
+        <nav>
+            <ul>
+              <a href="planning.html"><- back to home</a>
+            </ul>
+        </nav>
+    </section>
+  <h1>💞 Real Wedding Stories Gallery</h1>
+
+  <form id="uploadForm">
+    <input type="file" id="imageInput" accept="image/*" required>
+    <textarea id="testimonial" placeholder="Write a short story or testimonial..." rows="4" required></textarea>
+    <button type="submit">Upload Story</button>
+  </form>
+
+  <div class="gallery" id="gallery"></div>
+
+  <script>
+    const form = document.getElementById("uploadForm");
+    const gallery = document.getElementById("gallery");
+
+    window.onload = () => {
+      const savedGallery = JSON.parse(localStorage.getItem("weddingGallery")) || [];
+      savedGallery.forEach((entry, index) => addCard(entry.image, entry.text, index));
+    };
+
+    form.addEventListener("submit", e => {
+      e.preventDefault();
+
+      const file = document.getElementById("imageInput").files[0];
+      const text = document.getElementById("testimonial").value;
+      const reader = new FileReader();
+
+      reader.onload = function(event) {
+        const base64Image = event.target.result;
+
+        const saved = JSON.parse(localStorage.getItem("weddingGallery")) || [];
+        saved.push({ image: base64Image, text });
+        localStorage.setItem("weddingGallery", JSON.stringify(saved));
+
+        addCard(base64Image, text, saved.length - 1);
+
+        form.reset();
+        window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+      };
+
+      if (file) reader.readAsDataURL(file);
+    });
+
+    function addCard(image, text, index) {
+      const card = document.createElement("div");
+      card.className = "card";
+      card.innerHTML = `
+        <button class="delete-btn" onclick="deleteCard(${index})">&times;</button>
+        <img src="${image}" alt="wedding photo">
+        <p>${text}</p>
+      `;
+      gallery.appendChild(card);
+    }
+
+    function deleteCard(index) {
+      const saved = JSON.parse(localStorage.getItem("weddingGallery")) || [];
+      saved.splice(index, 1);
+      localStorage.setItem("weddingGallery", JSON.stringify(saved));
+      gallery.innerHTML = '';
+      saved.forEach((entry, idx) => addCard(entry.image, entry.text, idx));
+    }
+  </script>
+</body>
+</html>

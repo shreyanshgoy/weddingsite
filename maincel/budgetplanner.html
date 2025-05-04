@@ -1,0 +1,129 @@
+
+
+<!-- const API_KEYS = {
+    gemini: 'AIzaSyD3CBcb_HgIzbuaP_SVZ_eGly3TR41Qg-A',
+    unsplash: 'UlhByQuLTpsXhQQ8TYBmEoUm4uCkha-GUTRjluVZs5o',
+    google: 'AIzaSyBRmrHOZFh96GUXrkdJG0spEcya2uHDtuc',
+    googleCx: '148b8c360d47b4eac'
+}; -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wedding Budget Calculator</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #fff5f8;
+      color: #333;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 40px;
+    }
+    h1 {
+      text-align: center;
+      color: #ff4081;
+    }
+    .section {
+      margin-bottom: 25px;
+    }
+    .label {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 8px;
+      font-weight: 600;
+    }
+    input[type="range"] {
+      width: 100%;
+    }
+    .amount {
+      text-align: right;
+      font-size: 0.9em;
+      color: #555;
+    }
+    .total {
+      font-size: 1.3em;
+      font-weight: bold;
+      color: #2e7d32;
+      text-align: center;
+      margin-top: 30px;
+      border-top: 2px dashed #ccc;
+      padding-top: 20px;
+    }
+
+    section nav ul a {
+      text-decoration: none;
+      list-style: none;
+      font-size: 18px;
+    }
+  </style>
+</head>
+<body>
+     <section>
+         <nav>
+             <ul>
+               <a href="planning.html"><- back to home</a>
+             </ul>
+         </nav>
+     </section>
+  <h1>💰 Wedding Budget Calculator</h1>
+  <div id="budget-form">
+    <div class="section">
+      <div class="label">
+        Venue <span class="amount" id="venueAmt">₹50,000</span>
+      </div>
+      <input type="range" min="0" max="500000" value="50000" id="venue">
+    </div>
+
+    <div class="section">
+      <div class="label">
+        Catering <span class="amount" id="cateringAmt">₹80,000</span>
+      </div>
+      <input type="range" min="0" max="500000" value="80000" id="catering">
+    </div>
+
+    <div class="section">
+      <div class="label">
+        Photography <span class="amount" id="photoAmt">₹30,000</span>
+      </div>
+      <input type="range" min="0" max="200000" value="30000" id="photo">
+    </div>
+
+    <div class="section">
+      <div class="label">
+        Decoration <span class="amount" id="decoAmt">₹40,000</span>
+      </div>
+      <input type="range" min="0" max="200000" value="40000" id="deco">
+    </div>
+
+    <div class="section">
+      <div class="label">
+        Bridal Wear <span class="amount" id="bridalAmt">₹25,000</span>
+      </div>
+      <input type="range" min="0" max="200000" value="25000" id="bridal">
+    </div>
+
+    <div class="total" id="totalBudget">Total Budget: ₹2,25,000</div>
+  </div>
+
+  <script>
+    const inputs = ["venue", "catering", "photo", "deco", "bridal"];
+    const amounts = ["venueAmt", "cateringAmt", "photoAmt", "decoAmt", "bridalAmt"];
+
+    function updateBudget() {
+      let total = 0;
+      inputs.forEach((id, i) => {
+        const val = document.getElementById(id).value;
+        document.getElementById(amounts[i]).textContent = `₹${Number(val).toLocaleString()}`;
+        total += parseInt(val);
+      });
+      document.getElementById("totalBudget").textContent = `Total Budget: ₹${total.toLocaleString()}`;
+    }
+
+    inputs.forEach(id => {
+      document.getElementById(id).addEventListener("input", updateBudget);
+    });
+  </script>
+</body>
+</html>

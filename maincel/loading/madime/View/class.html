@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>booknow</title>
+</head>
+<body>
+  
+<div class="vendor">
+  
+  <img src="vendor.jpg" alt="Vendor" class="vendor-img">
+  <h4 class="vendor-title">Vendor Name</h4>
+  <p class="vendor-info">Some cool vendor description here.</p>
+
+  
+  <div class="vendor-actions">
+    <button class="btn small-btn check-availability">Check Availability</button>
+    <button class="btn small-btn book-now">Book Now</button>
+  </div>
+
+  
+  <div class="calendar-container" style="display:none;"></div>
+
+  
+  <div class="booking-form-overlay" style="display:none;">
+    <div class="booking-popup">
+      <span class="close-popup">&times;</span>
+      <h4>Confirm Booking</h4>
+      <p><strong>Date:</strong> <span class="selected-date"></span></p>
+      <input type="text" placeholder="Enter address..." class="address-input">
+      <button class="btn pay-now">Pay Now</button>
+    </div>
+  </div>
+
+  
+  <style>
+    .vendor {
+      width: 260px;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      padding: 10px;
+      margin: 10px;
+      font-family: 'Segoe UI', sans-serif;
+      display: inline-block;
+      vertical-align: top;
+      background: #fdfdfd;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    .vendor-img {
+      width: 100%;
+      border-radius: 6px;
+    }
+    .vendor-title {
+      margin: 8px 0 4px;
+      font-size: 18px;
+    }
+    .vendor-info {
+      font-size: 13px;
+      color: #444;
+    }
+    .vendor-actions {
+      margin-top: 8px;
+      display: flex;
+      gap: 5px;
+    }
+    .btn {
+      padding: 6px 10px;
+      background: #007bff;
+      border: none;
+      color: white;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 12px;
+      transition: background 0.2s;
+    }
+    .btn:hover {
+      background: #0056b3;
+    }
+    .small-btn {
+      flex: 1;
+    }
+
+    .calendar-container {
+      margin-top: 8px;
+      font-size: 11px;
+    }
+
+    .calendar-grid {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      gap: 3px;
+    }
+
+    .day {
+      padding: 5px 0;
+      text-align: center;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    .available-day {
+      background: #28a745;
+      color: white;
+    }
+    .available-day:hover {
+      background: #218838;
+    }
+    .unavailable-day {
+      background: #dc3545;
+      color: white;
+      cursor: not-allowed;
+    }
+
+    /* Booking Popup */
+    .booking-form-overlay {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100vw; height: 100vh;
+      background: rgba(0,0,0,0.5);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 999;
+    }
+
+    .booking-popup {
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      width: 260px;
+      position: relative;
+      text-align: center;
+    }
+
+    .booking-popup .close-popup {
+      position: absolute;
+      top: 5px; right: 10px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    .address-input {
+      width: 100%;
+      padding: 6px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+  </style>
+
+  
+  <script>
+    (function(){
+      const vendor = document.currentScript.closest(".vendor");
+      const checkBtn = vendor.querySelector(".check-availability");
+      const bookBtn = vendor.querySelector(".book-now");
+      const calendarContainer = vendor.querySelector(".calendar-container");
+      const formOverlay = vendor.querySelector(".booking-form-overlay");
+      const closeBtn = vendor.querySelector(".close-popup");
+      const payBtn = vendor.querySelector(".pay-now");
+      const selectedDateSpan = vendor.querySelector(".selected-date");
+      const addressInput = vendor.querySelector(".address-input");
+
+      let selectedDate = null;
+
+      const buildCalendar = () => {
+        calendarContainer.innerHTML = '';
+        const today = new Date();
+        const grid = document.createElement("div");
+        grid.className = "calendar-grid";
+
+
+for (let i = 1; i <= 21; i++) {
+          const day = document.createElement("div");
+          const future = new Date(today);
+          future.setDate(today.getDate() + i);
+          const dateStr = future.toISOString().split("T")[0];
+          const isAvailable = Math.random() > 0.3;
+
+          day.className = "day";
+          day.innerText = dateStr.split("-").slice(1).join("-");
+          day.dataset.date = dateStr;
+          day.classList.add(isAvailable ? "available-day" : "unavailable-day");
+
+          if (isAvailable) {
+            day.addEventListener("click", () => {
+              selectedDate = dateStr;
+              selectedDateSpan.innerText = dateStr;
+              formOverlay.style.display = "flex";
+            });
+          }
+
+          grid.appendChild(day);
+        }
+
+        calendarContainer.appendChild(grid);
+        calendarContainer.style.display = "block";
+      };
+
+      checkBtn.addEventListener("click", buildCalendar);
+      bookBtn.addEventListener("click", () => {
+        if (!selectedDate) {
+          alert("Please select an available date from calendar first.");
+        } else {
+          formOverlay.style.display = "flex";
+        }
+      });
+
+      closeBtn.addEventListener("click", () => {
+        formOverlay.style.display = "none";
+        addressInput.value = "";
+      });
+
+      payBtn.addEventListener("click", () => {
+        if (!addressInput.value.trim()) {
+          alert("Enter address before proceeding.");
+          return;
+        }
+        alert(`Booking confirmed on ${selectedDate}\nAddress: ${addressInput.value}`);
+        formOverlay.style.display = "none";
+        addressInput.value = "";
+      });
+    })();
+  </script>
+</div>
+</body>
+</html>

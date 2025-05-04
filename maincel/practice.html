@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .search-bar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.search-bar input {
+  padding: 6px 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+.search-bar button {
+  background-color: #ff4d6d;
+  border: none;
+  color: white;
+  padding: 6px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+    </style>
+</head>
+<body>
+    <form id="searchForm" class="search-bar">
+        <input type="text" id="searchInput" placeholder="Search for venues, vendors, etc." />
+        <button type="submit"><i class="fa fa-search"></i></button>
+      </form>
+      
+      <div id="resultsContainer"></div>
+      <script>
+      document.getElementById("searchForm").addEventListener("submit", function (e) {
+        e.preventDefault();
+        const query = document.getElementById("searchInput").value.trim();
+      
+        if (query) {
+          fetch(/api/search?query=${encodeURIComponent(query)})
+            .then(response => response.json())
+            .then(data => {
+              // Handle the results — either render directly or navigate to a results page
+              console.log("Search results:", data);
+              // You can display them inside a div or redirect to a new page
+              window.location.href = /search-results.html?query=${encodeURIComponent(query)};
+            })
+            .catch(error => console.error("Search error:", error));
+        }
+      });
+      </script>
+      <script>
+      const queryParams = new URLSearchParams(window.location.search);
+      const query = queryParams.get("query");
+      
+      fetch(/api/search?query=${encodeURIComponent(query)})
+        .then(res => res.json())
+        .then(data => {
+          const container = document.getElementById("resultsContainer");
+          if (data.length === 0) {
+            container.innerHTML = "<p>No results found.</p>";
+          } else {
+            container.innerHTML = data.map(item => <div>${item.name} (${item.type})</div>).join('');
+          }
+        });
+      </script>
+
+      <script>
+        app.get("/api/search", (req, res) => {
+  const query = req.query.query.toLowerCase();
+  
+  // Example dummy data
+  const items = [
+    { name: "Soundarya Palace Caterers", type: "Caterer" },
+    { name: "Sharavu Caterers", type: "Caterer" },
+    { name: "Raj Palace Hall", type: "Venue" },
+  ];
+
+  const filtered = items.filter(item => item.name.toLowerCase().includes(query));
+  res.json(filtered);
+});
+        </script>
+</body>
+</html>

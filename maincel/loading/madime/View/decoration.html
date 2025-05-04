@@ -1,0 +1,1020 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Decorators</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link href="https://fonts.googleapis.com/css?family=Bellefair" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Tinos" rel="stylesheet">
+  <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+  <script src="https://use.fontawesome.com/1d46f05392.js"></script>
+  <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/commonCSS/w3.css">
+  <link rel="stylesheet" type="text/css" href="../assets/commonCSS/deco3.css">
+  <style>
+    .star-rating {
+      font-size: 24px;
+      cursor: pointer;
+      margin-bottom: 15px;
+    }
+    .star-rating .fa-star {
+      color: #ddd;
+    }
+    .star-rating .active {
+      color: #ffd700;
+    }
+    .review-card {
+      border: 1px solid #ddd;
+      padding: 15px;
+      margin-bottom: 10px;
+      border-radius: 5px;
+    }
+    </style>
+    
+</head>
+<body >
+
+ <!-- review system -->
+  <div class="modal fade" id="allReviewsModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-lg" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">All Reviews</h4>
+        </div>
+        <div class="modal-body" id="allReviewsContent">
+          <!-- Reviews will be loaded here -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+<!-- Navbar code -->  
+  <nav class="navbar navbar-default">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-2">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand logo" href="../index.html">wedding</a>
+  </div>
+  <div class="collapse navbar-collapse" id="navbar-collapse-2">
+    <ul class="nav navbar-nav navbar-right">
+       <li><a href="../index.html">Home</a></li>
+     <!--  <li><a href="#">About</a></li> -->
+      <li><a href="../View/venue.html">Venue</a></li>
+      <li><a href="../View/photo.html">Photography</a></li>
+      <li><a href="../View/food.html">Catering</a></li>
+      <li><a href="../View/Decoration.html">Decorators</a></li>
+      <li><a href="../mc/mc.html">MC</a></li>
+      <li><a href="#" onclick="toggleCart()"><i class="fa fa-shopping-cart"></i> <span class="cart-count">0</span></a></li>
+      <li><a href="#" onclick="showAllReviews()"><i class="fa fa-comments"></i> Reviews</a></li>
+
+  </ul>
+
+</div><!-- /.navbar-collapse -->
+</div><!-- /.container -->
+</nav><!-- /.navbar -->
+<!-- closing Navbar code -->
+
+<!-- This code is for the long Display image (kind of jumbotron) (short height, full width image broo!) -->
+  <div class="longimg"> 
+
+    <h2 id="pick" class="inline1 pick1">Pick the Decorator for your occasion</h2> <!-- <i class="fa fa-heart inline1 pick1" aria-hidden="true"></i> -->
+
+    <div class="autosized autosized1">
+        <center>
+            <p>Contact Details <i class="fa fa-phone" aria-hidden="true"></i></p>
+        </center>
+    </div>
+
+    <div class="autosized autosized2">
+        <center>  <p>Gallery <i class="fa fa-picture-o" aria-hidden="true"></i></p> </center>  
+    </div>
+
+    <div class="autosized autosized3">
+        <center>
+            <p>Address  <i class="fa fa-map-marker" aria-hidden="true"></i></p>
+        </center>
+    </div>
+
+    <div class="autosized autosized4">
+        <center>
+            <p>Verified <i class="fa fa-check-circle-o" aria-hidden="true"></i></p>
+        </center>
+    </div> 
+
+  </div> 
+
+
+    <!-- Cart Sidebar -->
+<div id="cart-sidebar" class="cart-sidebar">
+  <h3>Your Cart <span id="cart-count">0</span></h3>
+  <div id="cart-content">
+    
+    <!-- Cart items will be inserted here -->
+  </div>
+  <br>
+  <button onclick="closeCart()" class="btn btn-danger">Close Cart</button>
+</div>
+<!-- Code for that fucking long image ends here -->
+
+<!-- now the code for displaying all the decorators -->
+
+  <div class="container" style="display: flex; flex-wrap: wrap;">
+    <div class="row" style="display: flex; flex-wrap: wrap;">
+<!-- first Decorator -->
+      <div class="col-lg-4 col-md-4 col-sm-6">
+        <div class="thumbnail">
+          <a href="#"><img class="card-img-top" src="../assets/images/dec1.jpg" alt=""></a>
+          <hr>
+          <h4>Wedding Bells Decorators</h4>
+          <h4>30000₹</h4>
+          <div class="container">
+
+            <!-- Trigger the modal with a button -->
+            <button type="button" class="btn btn-info btn-sm continfo" data-toggle="modal" data-target="#1myModal">Contact Info</button>
+            <!-- <a href="Dream/dreamgal.html" class="btn btn-primary btn-sm disabled"   role="button">Gallery</a> -->
+            <button type="button" class="btn btn-warning btn-sm review-btn" data-toggle="modal" data-target="#reviewModal1">
+              <i class="fa fa-star"></i> Review
+            </button>
+            <button type="button" class="btn btn-success btn-sm " data-toggle="modal" data-target="#1myModal2">Address</button>
+           
+            <button type="button" 
+        class="btn btn-success btn-sm buy-btn" 
+        onclick="addToCart(this)" 
+        data-contact-modal="#1myModal"
+        data-address-modal="#1myModal2"
+        style="background-color: red;">
+    Add
+</button>
+<button style="background-color: magenta;" onclick="window.location.href='../paymentgatway/index.html'"  class="btn btn-success btn-sm buy-btn">Book</button>
+
+
+            <!-- Modal -->
+            <div class="modal fade" id="1myModal" role="dialog">
+              <div class="modal-dialog modal-sm">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Wedding Bells Decorators</h4>     
+                  </div>
+                  <div class="modal-body">
+                    <p>Owner Name: Lancy</p>
+                    <p>Tel:  0824 4258077</p>
+                    <p>Phone:      9343565457 (Lancy)</p>
+                    <p>Phone:      9741529619 (Sonia)</p>
+                    <p>Email: Weddingbellsmlr@gmail.com</p>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+               
+            <!-- Modal -->
+            <div class="modal fade" id="1myModal2" role="dialog">
+              <div class="modal-dialog modal-sm">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Wedding Bells Decorators</h4>
+                  </div>
+                  <div class="modal-body">
+                   <p>Address: Presidency zone ||</p>
+                   <p>red fort, Delhi</p>
+                   <h4>Price : 30000₹</h4>
+                 </div>
+                 <div class="modal-footer">
+                  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+              </div>
+            </div>
+            </div>
+          </div>
+        </div>
+    </div>
+
+    <!-- review system model -->
+    <div class="modal fade" id="reviewModal1" tabindex="-1" role="dialog">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title">Rate Wedding Bells Decorators</h4>
+            
+          </div>
+          <div class="modal-body">
+            <div class="star-rating">
+              <span class="fa fa-star" data-rating="1"></span>
+              <span class="fa fa-star" data-rating="2"></span>
+              <span class="fa fa-star" data-rating="3"></span>
+              <span class="fa fa-star" data-rating="4"></span>
+              <span class="fa fa-star" data-rating="5"></span>
+              <input type="hidden" id="rating-input" name="rating" value="0">
+            </div>
+            <textarea class="form-control review-comment" placeholder="Write your review..." rows="3"></textarea>
+            <input type="text" class="form-control reviewer-name" placeholder="Your name (optional)" style="margin-top: 10px;">
+            <button class="btn btn-primary submit-review" data-decorator="Wedding Bells Decorators" style="margin-top: 10px;">Submit Review</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+    <!-- 2nd Decorator -->
+      <div class="col-lg-4 col-md-4 col-sm-6">
+        <div class="thumbnail">
+          <a href="#"><img class="card-img-top" src="../assets/images/dec2.jpg" style="height: 201px; width: 360px;" alt=""></a>
+          <hr>
+          <h4>Cherish Event Management</h4>
+          <h4>90000₹</h4>
+          <div class="container">
+
+            <!-- Trigger the modal with a button -->
+            <button type="button" class="btn btn-info btn-sm continfo" data-toggle="modal" data-target="#2myModal">Contact Info</button>
+            <button type="button" class="btn btn-warning btn-sm review-btn" data-toggle="modal" data-target="#reviewModal1">
+              <i class="fa fa-star"></i> Review
+            </button>
+            <button type="button" class="btn btn-success btn-sm " data-toggle="modal" data-target="#2myModal2">Address</button>
+
+            <button type="button" 
+            class="btn btn-success btn-sm buy-btn" 
+            onclick="addToCart(this)" 
+            data-contact-modal="#2myModal"
+            data-address-modal="#2myModal2"
+            style="background-color: red;">
+            Add
+    </button>
+    <button style="background-color: magenta;" onclick="window.location.href='../paymentgatway/index.html'"  class="btn btn-success btn-sm buy-btn">Book</button>
+
+
+            <!-- Modal -->
+            <div class="modal fade" id="2myModal" role="dialog">
+              <div class="modal-dialog modal-sm">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Cherish Event Management</h4>
+                  </div>
+                  <div class="modal-body">
+                    <p>Phone:     08618988612(Chetan Tour)</p>
+                    <p>Phone:     09901788930(Raison)</p>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Modal -->
+            <div class="modal fade" id="2myModal2" role="dialog">
+              <div class="modal-dialog modal-sm">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Cherish Event Management</h4>
+                  </div>
+                  <div class="modal-body">
+                   <p>Address: 2nd floor majestic commercial complex</p>
+                  <p> Karangalpady, 575003 Mangalore </p>
+                  <h4>Price : 90000₹</h4>
+                 </div>
+                 <div class="modal-footer">
+                  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+              </div>
+            </div>
+            </div>
+          </div>
+        </div>
+    </div>
+    
+
+    <!-- 3rd Decorator -->
+      <div class="col-lg-4 col-md-4 col-sm-6">
+        <div class="thumbnail">
+          <a href="#"><img class="card-img-top" src="../assets/images/dec3.jpg" style="height: 201px; width: 360px;" alt=""></a>
+          <hr>
+          <h4>Dream Decorators</h4>
+          <h4>10000₹</h4>
+          <div class="container">
+
+            <!-- Trigger the modal with a button -->
+            <button type="button" class="btn btn-info btn-sm continfo" data-toggle="modal" data-target="#3myModal">Contact Info</button>
+            <button type="button" class="btn btn-warning btn-sm review-btn" data-toggle="modal" data-target="#reviewModal1">
+              <i class="fa fa-star"></i> Review
+            </button>
+            <button type="button" class="btn btn-success btn-sm " data-toggle="modal" data-target="#3myModal2">Address</button>
+
+            <button type="button" 
+            class="btn btn-success btn-sm buy-btn" 
+            onclick="addToCart(this)" 
+            data-contact-modal="#3myModal"
+            data-address-modal="#3myModal2"
+            style="background-color: red;">
+            Add
+    </button>
+    <button style="background-color: magenta;" onclick="window.location.href='../paymentgatway/index.html'"  class="btn btn-success btn-sm buy-btn">Book</button>
+
+
+            <!-- Modal -->
+            <div class="modal fade" id="3myModal" role="dialog">
+              <div class="modal-dialog modal-sm">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Dream Decorators</h4>
+                  </div>
+                  <div class="modal-body">
+                    <p>Owner Name: Everest Lobo</p>
+                     <p>Phone:      9019357919 (Everest Lobo)</p>
+                    <p>Phone:      9845117517 (Even Lobo)</p>
+                   
+                   
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Modal -->
+            <div class="modal fade" id="3myModal2" role="dialog">
+              <div class="modal-dialog modal-sm">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Dream Decorators</h4>
+                  </div>
+                  <div class="modal-body">
+                   <p>Address:  Shop No. 80,</p>
+                 
+                   <p> New Market Building, MRPL Road, bhopal</p>
+                   <p> 575014 bhopal</p>
+                   <h4>Price : 10000₹</h4>
+                 </div>
+                 <div class="modal-footer">
+                  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+              </div>
+            </div>
+            </div>
+          </div>
+        </div>
+    </div>
+
+    <!-- 4th Decorator -->
+      <div class="col-lg-4 col-md-4 col-sm-6">
+        <div class="thumbnail">
+          <a href="#"><img class="card-img-top" src="../assets/images/dec4.jpg" style="height: 201px; width: 360px;" alt=""></a>
+          <hr>
+          <h4>Magic Balloon Decorators</h4>
+          <h4>120000₹</h4>
+          <div class="container">
+
+            <!-- Trigger the modal with a button -->
+            <button type="button" class="btn btn-info btn-sm continfo" data-toggle="modal" data-target="#4myModal">Contact Info</button>
+            <button type="button" class="btn btn-warning btn-sm review-btn" data-toggle="modal" data-target="#reviewModal1">
+              <i class="fa fa-star"></i> Review
+            </button>
+            <button type="button" class="btn btn-success btn-sm " data-toggle="modal" data-target="#4myModal2">Address</button>
+
+            <button type="button" 
+            class="btn btn-success btn-sm buy-btn" 
+            onclick="addToCart(this)" 
+            data-contact-modal="#4myModal"
+            data-address-modal="#4myModal2"
+            style="background-color: red;">
+            Add
+    </button>
+    <button style="background-color: magenta;" onclick="window.location.href='../paymentgatway/index.html'"  class="btn btn-success btn-sm buy-btn">Book</button>
+
+
+            <!-- Modal -->
+            <div class="modal fade" id="4myModal" role="dialog">
+              <div class="modal-dialog modal-sm">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Magic Balloon Decorators</h4>
+                  </div>
+                  <div class="modal-body">
+                    <p>Owner Name: Sachin km</p>
+                    
+                    <p>Phone:   089718 96917(Sachin km)</p>
+                  
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Modal -->
+            <div class="modal fade" id="4myModal2" role="dialog">
+              <div class="modal-dialog modal-sm">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Magic Balloon Decorators</h4>
+                  </div>
+                  <div class="modal-body">
+                   <p>Address: Behind Deepa Comfort N Crumbs</p>
+                   <p>temple road, bikaner, Rajasthan 575013</p>
+                   <h4>Price : 120000₹</h4>
+                 </div>
+                 <div class="modal-footer">
+                  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+              </div>
+            </div>
+            </div>
+          </div>
+        </div>
+    </div>
+
+    <!-- 5th Decorator -->
+      <div class="col-lg-4 col-md-4 col-sm-6">
+        <div class="thumbnail">
+          <a href="#"><img class="card-img-top" src="../assets/images/dec5.jpg" style="height: 201px; width: 360px;" alt=""></a>
+          <hr>
+          <h4>Glitz and Glam Decorators</h4>
+          <h4>98300₹</h4>
+          <div class="container">
+
+            <!-- Trigger the modal with a button -->
+            <button type="button" class="btn btn-info btn-sm continfo" data-toggle="modal" data-target="#5myModal">Contact Info</button>
+            <button type="button" class="btn btn-warning btn-sm review-btn" data-toggle="modal" data-target="#reviewModal1">
+              <i class="fa fa-star"></i> Review
+            </button>
+            <button type="button" class="btn btn-success btn-sm " data-toggle="modal" data-target="#5myModal2">Address</button>
+
+            <button type="button" 
+            class="btn btn-success btn-sm buy-btn" 
+            onclick="addToCart(this)" 
+            data-contact-modal="#5myModal"
+            data-address-modal="#5myModal2"
+            style="background-color: red;">
+            Add
+    </button>
+    <button style="background-color: magenta;" onclick="window.location.href='../paymentgatway/index.html'"  class="btn btn-success btn-sm buy-btn">Book</button>
+
+            <!-- Modal -->
+            <div class="modal fade" id="5myModal" role="dialog">
+              <div class="modal-dialog modal-sm">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Glitz and Glam Decorators</h4>
+                  </div>
+                  <div class="modal-body">
+                   <p>Tel: 0820 4293567 </p>
+                  <p>Phone: +91 8861008888</p>
+                  <p>Email: info@glitznglamevents.com</p>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Modal -->
+            <div class="modal fade" id="5myModal2" role="dialog">
+              <div class="modal-dialog modal-sm">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Glitz and Glam Decorators</h4>
+                  </div>
+                  <div class="modal-body">
+                   <p>Address: 1st Floor, Upendra Building,</p>
+                   <p> Near collectorate circle, sonepat , Harayana 576101</p>
+                   <h4>Price : 98300₹</h4>
+                 </div>
+                 <div class="modal-footer">
+                  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+              </div>
+            </div>
+            </div>
+          </div>
+        </div>
+    </div>
+
+        <!-- 6th Decorator -->
+      <div class="col-lg-4 col-md-4 col-sm-6">
+        <div class="thumbnail">
+          <a href="#"><img class="card-img-top" src="../assets/images/dec6.jpg" style="height: 201px; width: 360px;" alt=""></a>
+          <hr>
+          <h4>Rainbow events</h4>
+          <h4>150000₹</h4>
+          <div class="container">
+
+            <!-- Trigger the modal with a button -->
+            <button type="button" class="btn btn-info btn-sm continfo" data-toggle="modal" data-target="#6myModal">Contact Info</button>
+            <button type="button" class="btn btn-warning btn-sm review-btn" data-toggle="modal" data-target="#reviewModal1">
+              <i class="fa fa-star"></i> Review
+            </button>
+            <button type="button" class="btn btn-success btn-sm " data-toggle="modal" data-target="#6myModal2">Address</button>
+            <!-- &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; -->
+            <button type="button" 
+            class="btn btn-success btn-sm buy-btn" 
+            onclick="addToCart(this)" 
+            data-contact-modal="#6myModal"
+            data-address-modal="#6myModal2"
+            style="background-color: red;">
+            Add
+    </button>
+    <button style="background-color: magenta;" onclick="window.location.href='../paymentgatway/index.html'"  class="btn btn-success btn-sm buy-btn">Book</button>
+
+            <!-- Modal -->
+            <div class="modal fade" id="6myModal" role="dialog">
+              <div class="modal-dialog modal-sm">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Rainbow events</h4>
+                  </div>
+                  <div class="modal-body">
+                    <p>Owner Name:   Raison Ferrao</p>
+                    <p>Phone:  0824 4258077</p>
+                    <p>Phone:      8618758543 (Raison)</p>
+                    <p>Phone:      7353161008 (Shushanth)</p>
+                    <p>Email:    raisonferrao@gmail.com</p>
+                    
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Modal -->
+            <div class="modal fade" id="6myModal2" role="dialog">
+              <div class="modal-dialog modal-sm">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Rainbow Events</h4>
+                  </div>
+                  <div class="modal-body">
+                   <p>Address: Surat</p>
+                   <p>575015 Gujarat</p>
+                   <h4>Price : 150000₹</h4>
+                 </div>
+                 <div class="modal-footer">
+                  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+              </div>
+            </div>
+            </div>
+          </div>
+        </div>
+    </div>
+
+    <!-- 7th Decorator -->
+      <div class="col-lg-4 col-md-4 col-sm-6">
+        <div class="thumbnail">
+          <a href="#"><img class="card-img-top" src="../assets/images/dec9.jpg" style="height: 201px; width: 360px;" alt=""></a>
+          <hr>
+          <h4>Glitz Entertainment</h4>
+          <h4>230000₹</h4>
+          <div class="container">
+
+            <!-- Trigger the modal with a button -->
+            <button type="button" class="btn btn-info btn-sm continfo" data-toggle="modal" data-target="#7myModal">Contact Info</button>
+            <button type="button" class="btn btn-warning btn-sm review-btn" data-toggle="modal" data-target="#reviewModal1">
+              <i class="fa fa-star"></i> Review
+            </button>
+            <button type="button" class="btn btn-success btn-sm " data-toggle="modal" data-target="#7myModal2">Address</button>
+            <!-- &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp; -->
+            <button type="button" 
+        class="btn btn-success btn-sm buy-btn" 
+        onclick="addToCart(this)" 
+        data-contact-modal="#7myModal"
+        data-address-modal="#7myModal2"
+        style="background-color: red;">
+        Add
+</button>
+<button style="background-color: magenta;" onclick="window.location.href='../paymentgatway/index.html'"  class="btn btn-success btn-sm buy-btn">Book</button>
+
+            <!-- Modal -->
+            <div class="modal fade" id="7myModal" role="dialog">
+              <div class="modal-dialog modal-sm">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Glitz Entertainment</h4>
+                  </div>
+                  <div class="modal-body">
+                  
+                    <p>Tel:  0824 2498251</p>
+                    <p>Phone:       096206 66630</p>
+                   
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Modal -->
+            <div class="modal fade" id="7myModal2" role="dialog">
+              <div class="modal-dialog modal-sm">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Glitz Entertainment</h4>
+                  </div>
+                  <div class="modal-body">
+                   <p>Address: Rameshwaram, Tamil nadu </p>
+                   <p> Karnataka 575002</p>
+                   <h4>Price : 230000₹</h4>
+                 </div>
+                 <div class="modal-footer">
+                  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+              </div>
+            </div>
+            </div>
+          </div>
+        </div>
+    </div>
+
+    <!-- 8th Decorator -->
+      <div class="col-lg-4 col-md-4 col-sm-6">
+        <div class="thumbnail">
+          <a href="#"><img class="card-img-top" src="../assets/images/dec8.jpg" style="height: 201px; width: 360px;" alt=""></a>
+          <hr>
+          <h4>Souza Decorators</h4>
+          <h4>40000₹</h4>
+          <div class="container">
+
+            <!-- Trigger the modal with a button -->
+            <button type="button" class="btn btn-info btn-sm continfo" data-toggle="modal" data-target="#8myModal">Contact Info</button>
+            <button type="button" class="btn btn-warning btn-sm review-btn" data-toggle="modal" data-target="#reviewModal1">
+              <i class="fa fa-star"></i> Review
+            </button>
+            <button type="button" class="btn btn-success btn-sm " data-toggle="modal" data-target="#8myModal2">Address</button>
+            <!-- &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; -->
+            <button type="button" 
+            class="btn btn-success btn-sm buy-btn" 
+            onclick="addToCart(this)" 
+            data-contact-modal="#8myModal"
+            data-address-modal="#8myModal2"
+            style="background-color: red;">
+            Add
+    </button>
+    <button style="background-color: magenta;" onclick="window.location.href='../paymentgatway/index.html'"  class="btn btn-success btn-sm buy-btn">Book</button>
+
+            <!-- Modal -->
+            <div class="modal fade" id="8myModal" role="dialog">
+              <div class="modal-dialog modal-sm">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Souza Decorators</h4>
+                  </div>
+                  <div class="modal-body">
+                    <p>Owner Name: Lawrence Dsouza</p>
+                   
+                    <p>Phone:      9686096114 (Lawrence Dsouza)</p>
+                   
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Modal -->
+            <div class="modal fade" id="8myModal2" role="dialog">
+              <div class="modal-dialog modal-sm">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Souza Decorators</h4>
+                  </div>
+                  <div class="modal-body">
+                   <p>Address: Prem nagar</p>
+                   <p>kana,bhubneshwar</p>
+                   <p>Odisha</p>
+                   <h4>Price : 40000₹</h4>
+                 </div>
+                 <div class="modal-footer">
+                  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+              </div>
+            </div>
+            </div>
+          </div>
+        </div>
+    </div>
+
+    <!-- 9th Decorator -->
+      <div class="col-lg-4 col-md-4 col-sm-6">
+        <div class="thumbnail">
+          <a href="#"><img class="card-img-top" src="../assets/images/dec7.jpg" style="height: 201px; width: 360px;" alt=""></a>
+          <hr>
+          <h4>Shine Decorators</h4>
+          <h4>10000₹</h4>
+          <div class="container">
+
+            <!-- Trigger the modal with a button -->
+            <button type="button" class="btn btn-info btn-sm continfo" data-toggle="modal" data-target="#9myModal">Contact Info</button>
+            <button type="button" class="btn btn-warning btn-sm review-btn" data-toggle="modal" data-target="#reviewModal1">
+              <i class="fa fa-star"></i> Review
+            </button>
+            <button type="button" class="btn btn-success btn-sm " data-toggle="modal" data-target="#9myModal2">Address</button>
+            <!-- &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; -->
+            <button type="button" 
+            class="btn btn-success btn-sm buy-btn" 
+            onclick="addToCart(this)" 
+            data-contact-modal="#9myModal"
+            data-address-modal="#9myModal2"
+            style="background-color: red;">
+            Add
+    </button>
+    <button style="background-color: magenta;" onclick="window.location.href='../paymentgatway/index.html'"  class="btn btn-success btn-sm buy-btn">Book</button>
+
+            <!-- Modal -->
+            <div class="modal fade" id="9myModal" role="dialog">
+              <div class="modal-dialog modal-sm">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Shine Decorators</h4>
+                  </div>
+                  <div class="modal-body">
+                    <p>Owner Name: Anil crasta</p>
+                   
+                    <p>Phone:     9740361699</p>
+                   
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Modal -->
+            <div class="modal fade" id="9myModal2" role="dialog">
+              <div class="modal-dialog modal-sm">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Shine Decorators</h4>
+                  </div>
+                  <div class="modal-body">
+                   <p>Address: west bengal</p>
+                   <h4> Price : 10000₹</h4>
+                 
+                 </div>
+                 <div class="modal-footer">
+                  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+              </div>
+            </div>
+            </div>
+          </div>
+        </div>
+    </div>
+
+
+
+    
+      
+
+            
+
+
+      
+                 
+      
+    
+    
+    
+  </div> <!-- close row -->
+
+  </div>  <!-- close container -->
+
+  <script src="decorator.js"></script>
+
+<!-- this is for every single decorator review working -->
+  <script>
+    // Star Rating Interaction
+    document.querySelectorAll('.star-rating .fa-star').forEach(star => {
+      star.addEventListener('click', function() {
+        const rating = parseInt(this.dataset.rating);
+        const container = this.parentElement;
+        container.querySelectorAll('.fa-star').forEach((s, index) => {
+          s.classList.toggle('active', index < rating);
+        });
+        container.querySelector('#rating-input').value = rating;
+      });
+    });
+    
+    // Submit Review
+    document.querySelectorAll('.submit-review').forEach(button => {
+      button.addEventListener('click', function() {
+        const decorator = this.dataset.decorator;
+        const rating = this.parentElement.querySelector('#rating-input').value;
+        const comment = this.parentElement.querySelector('.review-comment').value;
+        const reviewer = this.parentElement.querySelector('.reviewer-name').value || 'Anonymous';
+    
+        if(rating === '0') {
+          alert('Please select a rating');
+          return;
+        }
+    
+        const review = {
+          decorator,
+          rating: parseInt(rating),
+          comment,
+          reviewer,
+          date: new Date().toLocaleDateString()
+        };
+    
+        reviews.push(review);
+        localStorage.setItem('decoratorReviews', JSON.stringify(reviews));
+        
+        // Update average rating display
+        updateAverageRatings();
+        alert('Thank you for your review!');
+        $('.modal').modal('hide');
+      });
+    });
+    
+    // Show All Reviews
+    function showAllReviews() {
+      const groupedReviews = reviews.reduce((acc, review) => {
+        if(!acc[review.decorator]) {
+          acc[review.decorator] = [];
+        }
+        acc[review.decorator].push(review);
+        return acc;
+      }, {});
+    
+      let reviewsHTML = '';
+      for(const [decorator, decoratorReviews] of Object.entries(groupedReviews)) {
+        reviewsHTML += `
+          <div class="review-group">
+            <h4>${decorator}</h4>
+            <div class="average-rating">
+              Average Rating: ${calculateAverage(decoratorReviews)}/5
+            </div>
+        `;
+    
+        decoratorReviews.forEach(review => {
+          reviewsHTML += `
+            <div class="review-card">
+              <div class="stars">${'★'.repeat(review.rating)}${'☆'.repeat(5 - review.rating)}</div>
+              <p>${review.comment}</p>
+              <div class="review-meta">
+                <span class="reviewer">${review.reviewer}</span>
+                <span class="date">${review.date}</span>
+              </div>
+            </div>
+          `;
+        });
+    
+        reviewsHTML += '</div>';
+      }
+    
+      document.getElementById('allReviewsContent').innerHTML = reviewsHTML || '<p>No reviews yet</p>';
+      $('#allReviewsModal').modal('show');
+    }
+    
+    // Helper functions
+    function calculateAverage(reviews) {
+      return (reviews.reduce((sum, review) => sum + review.rating, 0) / reviews.length).toFixed(1);
+    }
+    
+    function updateAverageRatings() {
+      document.querySelectorAll('.thumbnail').forEach(card => {
+        const decorator = card.querySelector('h4').textContent;
+        const decoratorReviews = reviews.filter(r => r.decorator === decorator);
+        
+        if(decoratorReviews.length > 0) {
+          const avg = calculateAverage(decoratorReviews);
+          let ratingBadge = card.querySelector('.avg-rating');
+          if(!ratingBadge) {
+            ratingBadge = document.createElement('div');
+            ratingBadge.className = 'avg-rating';
+            card.querySelector('h4').appendChild(ratingBadge);
+          }
+          ratingBadge.innerHTML = `Average Rating: ${avg}/5`;
+        }
+      });
+    }
+    
+    // Initial update when page loads
+    updateAverageRatings();
+    </script>
+
+    <script>
+// Review System Controller
+const reviewSystem = {
+  // Initialize with proper error handling
+  init() {
+    try {
+      this.reviews = JSON.parse(localStorage.getItem('decoratorReviews')) || [];
+    } catch (e) {
+      console.error('Error loading reviews:', e);
+      this.reviews = [];
+      localStorage.removeItem('decoratorReviews');
+    }
+  },
+
+  // Save reviews with validation
+  saveReviews() {
+    try {
+      localStorage.setItem('decoratorReviews', JSON.stringify(this.reviews));
+    } catch (e) {
+      console.error('Error saving reviews:', e);
+    }
+  },
+
+  // Add review with data validation
+  addReview(review) {
+    if (!review || 
+        typeof review.rating !== 'number' || 
+        review.rating < 1 || 
+        review.rating > 5) {
+      console.error('Invalid review format');
+      return false;
+    }
+    
+    this.reviews.push({
+      decorator: review.decorator,
+      rating: Math.floor(review.rating),
+      comment: review.comment.substring(0, 500), // Limit comments
+      reviewer: review.reviewer.substring(0, 50) || 'Anonymous',
+      date: new Date().toISOString()
+    });
+    
+    this.saveReviews();
+    return true;
+  },
+
+  // Get reviews for specific decorator
+  getReviews(decoratorName) {
+    return this.reviews.filter(r => r.decorator === decoratorName);
+  },
+
+  // Get average rating for decorator
+  getAverageRating(decoratorName) {
+    const decoratorReviews = this.getReviews(decoratorName);
+    if (decoratorReviews.length === 0) return 0;
+    return decoratorReviews.reduce((sum, r) => sum + r.rating, 0) / decoratorReviews.length;
+  }
+};
+
+// Initialize review system on page load
+document.addEventListener('DOMContentLoaded', () => {
+  reviewSystem.init();
+  updateAllRatingDisplays();
+});
+
+// Example usage in event listener:
+document.querySelector('.submit-review').addEventListener('click', () => {
+  const review = {
+    decorator: 'Wedding Bells Decorators',
+    rating: parseInt(document.querySelector('#rating-input').value),
+    comment: document.querySelector('.review-comment').value,
+    reviewer: document.querySelector('.reviewer-name').value
+  };
+  
+  if (reviewSystem.addReview(review)) {
+    updateRatingDisplay('Wedding Bells Decorators');
+  }
+});
+</script>
+
+<!-- this is for showing the all the review jaha par next page hai -->
+<script>
+  // Initialize reviews array in localStorage
+  let reviews = JSON.parse(localStorage.getItem('decoratorReviews')) || [];
+</script>
+
+</body>
+</html>

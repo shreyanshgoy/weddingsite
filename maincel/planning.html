@@ -1,0 +1,355 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-color: pink;
+        }
+        .mall{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .mall  ul {
+            display: flex;
+            justify-content: center;
+            flex-wrap: row;
+            padding: 20px;
+        }
+
+        .mall ul li{
+            list-style: none;
+            text-decoration: none;
+            margin: 10px;
+        }
+
+        
+        
+    </style>
+</head>
+
+<body>
+
+    <nav class="mall">
+        <h2>Wedding Web</h2>
+        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; -->
+        <!-- <ul>
+            <li>home</li>
+            <li>contact</li>
+            <li>services</li>
+            <li>review</li>
+            <li>taskbar</li>
+        </ul>
+    </nav>
+</body>
+</html> -->
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Wedding Bliss | Home</title>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+  <style>
+
+    .animated-text {
+      font-size: 3rem;
+      font-weight: bold;
+      background-image: linear-gradient(45deg, red , green , pink , yellow , orange , purple);
+      background-size: 300% 300%;
+      color: transparent;
+      background-clip: text;
+      -webkit-background-clip: text;
+      animation: colorShift 5s linear infinite;
+    }
+
+    @keyframes colorShift {
+      0% {
+        background-position: 0% 50%;
+      }
+      50% {
+        background-position: 100% 50%;
+      }
+      100% {
+        background-position: 0% 50%;
+      }
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #fff0f5;
+      color: #333;
+    }
+
+    header {
+      background: linear-gradient(to right, #ff9a9e, #fad0c4);
+      color: white;
+      padding: 10px 20px;
+      text-align: center;
+      display: flex;
+      margin-top: -30px;
+    }
+
+    header h1 {
+      font-family: 'Great Vibes', cursive;
+      font-size: 3.5rem;
+      color: white;
+      text-shadow: 1px 1px 4px rgba(0,0,0,0.3);
+      display: flex;
+      margin-right: 10px;
+    }
+
+    header p {
+      font-size: 1rem;
+      margin-top: 10px;
+      font-weight: 300;
+    }
+
+    header nav{
+         display: flex;
+         /* justify-content: center;
+         align-items: center; */
+         margin-left: 420px;
+    }
+
+    header nav a{
+        /* margin: 14px; */
+        /* padding: 30px; */
+        font-size: 20px;
+    }
+    
+    header nav a:hover{
+        transition: 0.5s ease-in-out;
+        text-decoration: none;
+       color: black;
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 50px;
+      margin: 20px 0;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: white;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    nav a:hover {
+      color: #fffde7;
+      text-decoration: underline;
+    }
+
+    .hero {
+      background: url('https://images.unsplash.com/photo-1542062703-3fd62b3ddff2') no-repeat center/cover;
+      height: 100vh;
+      display: flex;
+      /* align-items: center; */
+      justify-content: center;
+      text-align: center;
+      padding: 20px;
+      position: relative;
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.4);
+      z-index: 1;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      color: white;
+      margin-top: 35px;
+    }
+
+
+    .hero-content h2 {
+      font-size: 3rem;
+      margin-bottom: 15px;
+      font-family: 'Great Vibes', cursive;
+    }
+
+    .hero-content p {
+      font-size: 1.2rem;
+      max-width: 600px;
+      margin: auto;
+    }
+
+    .hero-content a {
+      display: inline-block;
+      margin-top: 30px;
+      padding: 12px 30px;
+      background: #ff5e78;
+      color: white;
+      text-decoration: none;
+      border-radius: 30px;
+      transition: 0.3s ease-in-out;
+    }
+
+    .hero-content a:hover {
+      background: #e94c63;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: #ffc0cb;
+      color: #555;
+      font-size: 0.9rem;
+    }
+
+    @media(max-width: 768px) {
+      .hero-content h2 {
+        font-size: 2.2rem;
+      }
+    }
+
+    .bowlk{
+        /* background-color: pink; */
+        /* justify-content: space-evenly; */
+        height: 200px;
+        width: 500px;
+        display: flex;
+        flex-direction: row;
+        /* margin-bottom: 230px; */
+        /* margin-top: 100px;
+        margin-right: 20px; */
+        
+    }
+
+    .total{
+      background-color: white;
+      height: 250px;
+      width: 250px;
+      display: flex;
+      margin: 10px;
+      
+    }
+
+    h2 {
+      font-size: 2.5rem;
+      font-weight: bold;
+      color: #db2777;
+      margin-bottom: 40px;
+    }
+
+    .grid-container {
+      /* display: grid; */
+      /* grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); */
+      gap: 24px;
+      width: 100%;
+      max-width: 1200px;
+      display: flex;
+
+
+      justify-content:space-evenly;
+      margin-top: 100px;
+
+    }
+
+    .box {
+      background-color: white;
+      border-radius: 20px;
+      padding: 24px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      transition: all 0.3s ease-in-out;
+      cursor: pointer;
+      /* display: flex; */
+    }
+
+    .box:hover {
+      transform: translateY(-10px) scale(1.03);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+      background-color: #ffe4ed;
+    }
+
+    .box h3 {
+      font-size: 1.25rem;
+      color: #c02664;
+      margin-bottom: 10px;
+    }
+
+    .box p {
+      color: #555;
+    }
+
+    
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Wedding Web</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="#venue">Venue</a>
+      <a href="#vendors">Vendors</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#rsvp">RSVP</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <div class="hero-content">
+        <h2 class="animated-text">Two Hearts, One Story</h2>
+      <p>Explore breathtaking venues, handpicked vendors, and real wedding stories that inspire your big day.</p>
+      <a href="#start">Start Planning</a>
+      <div class="grid-container">
+
+          <div  class="box" onclick="window.location.href='budgetplanner.html'">
+            <h3>💰 Budget Planner</h3>
+            <p>Track and manage your wedding expenses with smart tools.</p>
+          </div>
+        
+    
+        <div class="box">
+          <h3>📅 Checklist</h3>
+          <p>Create to-dos and track progress from engagement to honeymoon.</p>
+        </div>
+    
+        <div class="box" onclick="window.location.href='ai.html'">
+          <h3>📍 Venue Ideas</h3>
+          <p>Explore theme-based venues and shortlist your favorites.</p>
+        </div>
+    
+        <div class="box"  onclick="window.location.href='stories.html'">
+          <h3>📸 Wedding Stories</h3>
+          <p>Save inspiration boards, photos, and vendor portfolios.</p>
+        </div>
+      </div>
+      </div>
+    </div>
+    
+</section>
+
+    <!-- <div class="bowl"></div>
+    <div  class="bowl"></div> -->
+
+
+  <footer>
+    © 2024 Wedding Bliss | Crafted with 💗 for your forever
+  </footer>
+
+</body>
+</html>
